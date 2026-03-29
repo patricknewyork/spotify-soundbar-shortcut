@@ -1,6 +1,13 @@
-# Spotify → Samsung Soundbar: One-Tap iPhone Shortcut
+# Spotify to Samsung Soundbar: One-Tap iPhone Shortcut
 
 A Scriptable script + iPhone Shortcut that transfers Spotify playback to a Wi-Fi connected Samsung soundbar in one tap. No AirPlay, no manual switching through the Spotify Connect menu.
+
+## Quick Install
+
+- **Shortcut (one-tap):** [Add to Shortcuts](https://www.icloud.com/shortcuts/b36e588aa1f34af7a37bcf3c2bbea37d)
+- **Script:** Copy `spotify-soundbar.js` from this repo into Scriptable
+
+Then follow the setup steps below.
 
 ## How it works
 
@@ -53,14 +60,13 @@ Your refresh token is saved to Scriptable's Keychain. This step never repeats.
 
 ---
 
-### Step 4: Create the Shortcut
+### Step 4: Install the Shortcut
 
-1. Open the Shortcuts app, tap **+**
-2. Search for "Scriptable", add **Run Script**
-3. Select `Spotify Soundbar`
-4. Turn off **Run In App** and **Show When Run**
-5. Leave the parameter field empty
-6. Name it and add to your home screen
+1. Tap the **Add to Shortcuts** link above
+2. In the Shortcut editor, tap "SpotifyDev" in blue and select your script name
+3. Turn off **Run In App** and **Show When Run**
+4. Leave the parameter field empty
+5. Add to your home screen
 
 ---
 
@@ -76,4 +82,4 @@ If the soundbar is off or in deep standby, Spotify's API won't see it. The scrip
 
 - Spotify Premium is required for playback transfer via the API
 - The device name in the config must match exactly what appears in Spotify Connect
-- Client ID and Secret are stored directly in the script. Keep this repo private.
+- Keep your Client ID and Secret private. Do not share your configured version of the script publicly.
