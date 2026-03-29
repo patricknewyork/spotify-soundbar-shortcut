@@ -63,7 +63,7 @@ Your refresh token is saved to Scriptable's Keychain. This step never repeats.
 ### Step 4: Install the Shortcut
 
 1. Tap the **Add to Shortcuts** link above
-2. In the Shortcut editor, tap "SpotifyDev" in blue and select your script name
+2. In the Shortcut editor, tap "Spotify Soundbar" in blue and select your script name
 3. Turn off **Run In App** and **Show When Run**
 4. Leave the parameter field empty
 5. Add to your home screen
