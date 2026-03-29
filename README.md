@@ -77,6 +77,16 @@ Tap the shortcut. Spotify transfers to the soundbar and sets your volume automat
 If the soundbar is off or in deep standby, Spotify's API won't see it. The script will show a clear error listing which devices are currently visible instead of failing silently.
 
 ---
+## Disclaimer
+
+This project is offered as-is with no warranty, guarantee of functionality, or ongoing support. Use at your own risk.
+
+A few things worth knowing:
+
+- Spotify's Web API terms of service prohibit commercial use. This is for personal use only.
+- Your Client ID and Secret give access to your Spotify account. Never share your configured version of this script publicly.
+- The Spotify API can change at any time, which may break functionality without notice.
+- This project is not affiliated with Spotify, Samsung, or Apple.
 
 ## Notes
 
