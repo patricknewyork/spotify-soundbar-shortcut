@@ -93,3 +93,5 @@ A few things worth knowing:
 - Spotify Premium is required for playback transfer via the API
 - The device name in the config must match exactly what appears in Spotify Connect
 - Keep your Client ID and Secret private. Do not share your configured version of the script publicly.
+
+
