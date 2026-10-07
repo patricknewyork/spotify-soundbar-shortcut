@@ -8,7 +8,7 @@ const KEYCHAIN_KEY = "spotify_refresh_token";
 const VOLUME       = 4; // percentage, 0-100
 // ──────────────────────────────────────────────────────
 
-async function getAccessToken() {
+async function getAccessToken(allowReauthorization = true) {
   let refreshToken = Keychain.contains(KEYCHAIN_KEY)
     ? Keychain.get(KEYCHAIN_KEY)
     : null;
@@ -29,10 +29,17 @@ async function getAccessToken() {
     + encodeURIComponent(refreshToken);
 
   const res = await req.loadJSON();
-  if (res.error) {
+  if (res.error === "invalid_grant") {
     Keychain.remove(KEYCHAIN_KEY);
-    throw new Error("Token refresh failed: " + res.error_description
-      + ". Run the script again to re-authorize.");
+    if (allowReauthorization) {
+      const newRefreshToken = await doInitialAuth();
+      if (!newRefreshToken) throw new Error("Authorization cancelled.");
+      // Retry once with the newly authorized token, never the expired token.
+      return getAccessToken(false);
+    }
+  }
+  if (res.error) {
+    throw new Error("Token refresh failed: " + (res.error_description || res.error));
   }
   if (res.refresh_token) {
     Keychain.set(KEYCHAIN_KEY, res.refresh_token);
