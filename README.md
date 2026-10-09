@@ -49,14 +49,14 @@ const VOLUME       = 4; // percentage, 0-100
 
 ---
 
-### Step 3: Authorize (one-time only)
+### Step 3: Authorize
 
 1. Tap the play button in Scriptable. Safari opens to Spotify's auth screen. Tap Agree.
 2. Safari redirects to a "page not found" page on example.com. That's expected.
 3. Copy the full URL from Safari's address bar.
 4. Switch back to Scriptable, paste the URL into the prompt, tap Continue.
 
-Your refresh token is saved to Scriptable's Keychain. This step never repeats.
+Your refresh token is saved to Scriptable's Keychain. Spotify refresh tokens expire six months after authorization; refreshing access tokens does not extend that lifetime. When Spotify returns `invalid_grant` (for example, after expiration), the script clears the invalid token and opens this authorization flow immediately. Complete the same steps above and playback continues in the same launch. Cancelling authorization stops that launch.
 
 ---
 
@@ -87,6 +87,10 @@ A few things worth knowing:
 - Your Client ID and Secret give access to your Spotify account. Never share your configured version of this script publicly.
 - The Spotify API can change at any time, which may break functionality without notice.
 - This project is not affiliated with Spotify, Samsung, or Apple.
+
+## Regression check
+
+Run `node --test tests/token-refresh.test.cjs` with Node.js 18 or later. The check mocks Scriptable and Spotify, so it needs no credentials, iPhone, or network access.
 
 ## Notes
 
